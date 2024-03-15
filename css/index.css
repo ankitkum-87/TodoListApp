@@ -1,0 +1,22 @@
+body{
+    background-color:gold;
+    mask-repeat: no-repeat;
+}
+input{
+    padding: 6px 2px;
+    min-width: 320px;
+    font-size: 18px;
+}
+.btn{
+    font-size: 26px;
+    position: absolute;
+}
+.heading{
+    text-align: center;
+}
+.container{
+    display: block;
+    box-sizing: border-box;
+    justify-content: center;
+    text-align: center;
+}
