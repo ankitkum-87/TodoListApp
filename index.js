@@ -21,17 +21,30 @@ const showTodoList = ()=>{
         todoLists.appendChild(liElement);
     })
 }
+
+// remove todo function
+
+const removeTodoList = (e)=>{
+    console.log(e.target.textContent);
+
+    updatedTodoList = todoListValue.filter((currTodoValue)=> currTodoValue != e.target.textContent);
+    addTodoListLocalStorage(updatedTodoList);
+    todoLists.innerHTML="";
+    showTodoList();
+    console.log("updated list ",updatedTodoList);
+}
 const addTodoList = (e)=>{
-    e.preventDefault();
+    //e.preventDefault();
     //console.log("hello",e.target);
     todoListValue = getTodoListFromLocalStorage();
     let newTodo = listValue.value.trim();
     console.log(newTodo);
     listValue.value = "";
 
-    if(newTodo.length != 0){
-        console.log(typeof todoListValue)
+    if(newTodo.length != 0 && !todoListValue.includes(newTodo)){
+        //console.log(typeof todoListValue)
         todoListValue.push(newTodo);
+        //todoListValue = [...new Set(todoListValue)];
         addTodoListLocalStorage(todoListValue);
         const liElement = document.createElement('li');
         liElement.innerHTML = listValue.value;
@@ -42,4 +55,8 @@ const addTodoList = (e)=>{
 showTodoList();
 document.querySelector(".btn").addEventListener("click",(e)=>{
     addTodoList(e);
+});
+
+todoLists.addEventListener("click",(e)=>{
+    removeTodoList(e);
 })
