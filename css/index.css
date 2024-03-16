@@ -9,14 +9,24 @@ input{
 }
 .btn{
     font-size: 26px;
+    border-radius: 2rem;
     position: absolute;
+    background-color: cadetblue;
+}
+.btn:hover{
+    color: green;
 }
 .heading{
     text-align: center;
 }
-.container{
-    display: block;
-    box-sizing: border-box;
+.main{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    text-align: center;
+    align-items: center;
+}
+.todoLists{
+    background-color: aqua;
+    list-style-type:none
+
 }

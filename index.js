@@ -27,10 +27,12 @@ const showTodoList = ()=>{
 const removeTodoList = (e)=>{
     console.log(e.target.textContent);
 
-    updatedTodoList = todoListValue.filter((currTodoValue)=> currTodoValue != e.target.textContent);
+    let currentTodo = e.target;
+    updatedTodoList = todoListValue.filter((currTodoValue)=> currTodoValue != currentTodo.textContent);
     addTodoListLocalStorage(updatedTodoList);
-    todoLists.innerHTML="";
-    showTodoList();
+    currentTodo.remove();
+    // todoLists.innerHTML="";
+    // showTodoList();
     console.log("updated list ",updatedTodoList);
 }
 const addTodoList = (e)=>{
